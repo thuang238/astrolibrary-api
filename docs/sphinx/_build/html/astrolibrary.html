@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>astrolibrary package &mdash; astrolibrary 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            astrolibrary
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">astrolibrary package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#module-astrolibrary">Module contents</a><ul>
+<li><a class="reference internal" href="#astrolibrary.DataPreprocessing"><code class="docutils literal notranslate"><span class="pre">DataPreprocessing</span></code></a><ul>
+<li><a class="reference internal" href="#astrolibrary.DataPreprocessing.correct_redshift"><code class="docutils literal notranslate"><span class="pre">DataPreprocessing.correct_redshift()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.DataPreprocessing.normalize_column"><code class="docutils literal notranslate"><span class="pre">DataPreprocessing.normalize_column()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.DataPreprocessing.read_data"><code class="docutils literal notranslate"><span class="pre">DataPreprocessing.read_data()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.DataPreprocessing.remove_outliers_column"><code class="docutils literal notranslate"><span class="pre">DataPreprocessing.remove_outliers_column()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.DataPreprocessing.wave_align"><code class="docutils literal notranslate"><span class="pre">DataPreprocessing.wave_align()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#astrolibrary.MachineLearning"><code class="docutils literal notranslate"><span class="pre">MachineLearning</span></code></a><ul>
+<li><a class="reference internal" href="#astrolibrary.MachineLearning.fit"><code class="docutils literal notranslate"><span class="pre">MachineLearning.fit()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.MachineLearning.predict"><code class="docutils literal notranslate"><span class="pre">MachineLearning.predict()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.MachineLearning.predict_proba"><code class="docutils literal notranslate"><span class="pre">MachineLearning.predict_proba()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.MachineLearning.report_confusion_matrix"><code class="docutils literal notranslate"><span class="pre">MachineLearning.report_confusion_matrix()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#astrolibrary.MetaDataExtractor"><code class="docutils literal notranslate"><span class="pre">MetaDataExtractor</span></code></a><ul>
+<li><a class="reference internal" href="#astrolibrary.MetaDataExtractor.get_class_of_object"><code class="docutils literal notranslate"><span class="pre">MetaDataExtractor.get_class_of_object()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.MetaDataExtractor.get_coordinates"><code class="docutils literal notranslate"><span class="pre">MetaDataExtractor.get_coordinates()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.MetaDataExtractor.get_identifiers"><code class="docutils literal notranslate"><span class="pre">MetaDataExtractor.get_identifiers()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.MetaDataExtractor.get_metadata"><code class="docutils literal notranslate"><span class="pre">MetaDataExtractor.get_metadata()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.MetaDataExtractor.get_redshift"><code class="docutils literal notranslate"><span class="pre">MetaDataExtractor.get_redshift()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#astrolibrary.QueryHandler"><code class="docutils literal notranslate"><span class="pre">QueryHandler</span></code></a><ul>
+<li><a class="reference internal" href="#astrolibrary.QueryHandler.check_status"><code class="docutils literal notranslate"><span class="pre">QueryHandler.check_status()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.QueryHandler.get_results"><code class="docutils literal notranslate"><span class="pre">QueryHandler.get_results()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.QueryHandler.run_query"><code class="docutils literal notranslate"><span class="pre">QueryHandler.run_query()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#astrolibrary.cross_match"><code class="docutils literal notranslate"><span class="pre">cross_match()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.get_spectra_data"><code class="docutils literal notranslate"><span class="pre">get_spectra_data()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">astrolibrary</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">astrolibrary package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/astrolibrary.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="astrolibrary-package">
+<h1>astrolibrary package<a class="headerlink" href="#astrolibrary-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="astrolibrary.data_acquisition.html">astrolibrary.data_acquisition namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="astrolibrary.data_acquisition.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="astrolibrary.data_acquisition.query_interface.html">astrolibrary.data_acquisition.query_interface package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="astrolibrary.data_acquisition.query_interface.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="astrolibrary.data_acquisition.query_interface.html#module-astrolibrary.data_acquisition.query_interface">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="astrolibrary.data_acquisition.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="astrolibrary.data_acquisition.spectra_data_retrieval.html">astrolibrary.data_acquisition.spectra_data_retrieval module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="astrolibrary.data_acquisition.spectra_data_retrieval.html#astrolibrary.data_acquisition.spectra_data_retrieval.get_spectra_data"><code class="docutils literal notranslate"><span class="pre">get_spectra_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="astrolibrary.data_processing.html">astrolibrary.data_processing namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="astrolibrary.data_processing.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="astrolibrary.data_processing.data_preprocessing.html">astrolibrary.data_processing.data_preprocessing module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="astrolibrary.data_processing.data_preprocessing.html#astrolibrary.data_processing.data_preprocessing.DataPreprocessing"><code class="docutils literal notranslate"><span class="pre">DataPreprocessing</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-astrolibrary">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-astrolibrary" title="Link to this heading">¶</a></h2>
+<p>TODO: Add module docstring.</p>
+<p>The numpy’s main module docstring is a good example to follow:
+<a class="reference external" href="https://github.com/numpy/numpy/blob/main/numpy/__init__.py">https://github.com/numpy/numpy/blob/main/numpy/__init__.py</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="astrolibrary.DataPreprocessing">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astrolibrary.</span></span><span class="sig-name descname"><span class="pre">DataPreprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_target_wavelength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_target_wavelength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.DataPreprocessing" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.DataPreprocessing.correct_redshift">
+<span class="sig-name descname"><span class="pre">correct_redshift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Wavelength'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flux_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Flux'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.DataPreprocessing.correct_redshift" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.DataPreprocessing.normalize_column">
+<span class="sig-name descname"><span class="pre">normalize_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.DataPreprocessing.normalize_column" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.DataPreprocessing.read_data">
+<span class="sig-name descname"><span class="pre">read_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.DataPreprocessing.read_data" title="Link to this definition">¶</a></dt>
+<dd><p>Ensure the reading of FITS and CSV files.</p>
+<p>Especially, FITS files are not read by default by Pandas
+and passing them to <cite>pd.read_csv</cite> will raise an error mostly
+depending on compiler of the user. the following error is
+common:
+<cite>ValueError: Big-endian buffer not supported on little-endian compiler</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.DataPreprocessing.remove_outliers_column">
+<span class="sig-name descname"><span class="pre">remove_outliers_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.DataPreprocessing.remove_outliers_column" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.DataPreprocessing.wave_align">
+<span class="sig-name descname"><span class="pre">wave_align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Wavelength'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loglam_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LOGLAM'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.DataPreprocessing.wave_align" title="Link to this definition">¶</a></dt>
+<dd><p>Align spectra wavelengths within a predefined range.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="astrolibrary.MachineLearning">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astrolibrary.</span></span><span class="sig-name descname"><span class="pre">MachineLearning</span></span><a class="headerlink" href="#astrolibrary.MachineLearning" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MachineLearning.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MachineLearning.fit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MachineLearning.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MachineLearning.predict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MachineLearning.predict_proba">
+<span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MachineLearning.predict_proba" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MachineLearning.report_confusion_matrix">
+<span class="sig-name descname"><span class="pre">report_confusion_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted_labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MachineLearning.report_confusion_matrix" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="astrolibrary.MetaDataExtractor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astrolibrary.</span></span><span class="sig-name descname"><span class="pre">MetaDataExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MetaDataExtractor" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MetaDataExtractor.get_class_of_object">
+<span class="sig-name descname"><span class="pre">get_class_of_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MetaDataExtractor.get_class_of_object" title="Link to this definition">¶</a></dt>
+<dd><p>Get the class of the object.</p>
+<p>Returns:
+- str: a string containing the class of the object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MetaDataExtractor.get_coordinates">
+<span class="sig-name descname"><span class="pre">get_coordinates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MetaDataExtractor.get_coordinates" title="Link to this definition">¶</a></dt>
+<dd><p>Get the coordinates of the data.</p>
+<p>Returns:
+- tuple: Tuple containing the coordinates.</p>
+<blockquote>
+<div><p>Also can be accessed by calling
+get_metadata(df[[“RACEN”, “DECCEN”]]) as dataframe.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MetaDataExtractor.get_identifiers">
+<span class="sig-name descname"><span class="pre">get_identifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MetaDataExtractor.get_identifiers" title="Link to this definition">¶</a></dt>
+<dd><p>Get the identifiers of the data.</p>
+<p>Returns:
+- dataframe: Dataframe containing the identifiers of the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MetaDataExtractor.get_metadata">
+<span class="sig-name descname"><span class="pre">get_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_columns</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MetaDataExtractor.get_metadata" title="Link to this definition">¶</a></dt>
+<dd><p>Get the extracted metadata. For other metadata, clients
+can call the this method with the appropriate list of columns.</p>
+<p>Returns:
+- dict: Dictionary containing the extracted metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.MetaDataExtractor.get_redshift">
+<span class="sig-name descname"><span class="pre">get_redshift</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.MetaDataExtractor.get_redshift" title="Link to this definition">¶</a></dt>
+<dd><p>Get the redshift of the data.</p>
+<p>Returns:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="astrolibrary.QueryHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astrolibrary.</span></span><span class="sig-name descname"><span class="pre">QueryHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.QueryHandler" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for handling queries to a given <cite>dataset_name</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.QueryHandler.check_status">
+<span class="sig-name descname"><span class="pre">check_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#astrolibrary.QueryHandler.check_status" title="Link to this definition">¶</a></dt>
+<dd><p>Check the status of a query given its <cite>query_id</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_id</strong> (<em>str</em>) – The unique identifier of the query to check its status.</p></li>
+<li><p><strong>Returns</strong> – </p></li>
+<li><p><strong>--------</strong> – </p></li>
+<li><p><strong>status</strong> (<em>str</em>) – <dl class="simple">
+<dt>The status of the query. This can be one of the following:</dt><dd><ul>
+<li><p>”COMPLETED”: The query completed successfully.</p></li>
+<li><p>”ERROR”: The query failed with an error.</p></li>
+<li><p>”RUNNING”: The query is still running.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>Raises</strong> – </p></li>
+<li><p><strong>-------</strong> – </p></li>
+<li><p><strong>ValueError</strong> – If the given <cite>query_id</cite> is not found in <cite>self.statuses</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.QueryHandler.get_results">
+<span class="sig-name descname"><span class="pre">get_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Table</span></span></span><a class="headerlink" href="#astrolibrary.QueryHandler.get_results" title="Link to this definition">¶</a></dt>
+<dd><p>Get the results of a query.</p>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>query_id<span class="classifier">str</span></dt><dd><p>The unique identifier of the query to get its results.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>table<span class="classifier">astropy.table.Table</span></dt><dd><p>The results of the query as an astropy table.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises:<a class="headerlink" href="#raises" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ValueError:</dt><dd><p>If the given <cite>query_id</cite> is not found in <cite>self.results</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.QueryHandler.run_query">
+<span class="sig-name descname"><span class="pre">run_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#astrolibrary.QueryHandler.run_query" title="Link to this definition">¶</a></dt>
+<dd><p>Runs the given query against <cite>self.dataset_name</cite>.</p>
+<p>Uses the connector of <cite>self.dataset_name</cite> to run the query. To make
+this function dataset-agnostic, we will require the <cite>_name_connector</cite>
+modules to inherit from a base class <cite>Connector</cite> that has a <cite>run_query</cite>
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – The query to run.</p></li>
+<li><p><strong>*args</strong> (<em>iterable</em>) – Other arguments. For future extensibility.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Other keyword arguments. For future extensibility.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>query_id</strong> – A unique identifier for the query that can be used to check the
+status of the query and get the results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>:raises ValueError : If the given <cite>query</cite> is invalid.:</p>
+<p class="rubric">Examples</p>
+<p>These are written in doctest format, and should illustrate how to
+use the function.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astrolibrary.query_interface.query_handler</span> <span class="kn">import</span> <span class="n">QueryHandler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qh</span> <span class="o">=</span> <span class="n">QueryHandler</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;sdss&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qh</span><span class="o">.</span><span class="n">run_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM table LIMIT 10&quot;</span><span class="p">)</span>
+<span class="go">&#39;12345&#39;</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>The main reason for <cite>query_id</cite> is to allow future extensibility to
+support asynchronous queries, while also keeping backward compatibility
+with synchronous queries.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astrolibrary.cross_match">
+<span class="sig-prename descclassname"><span class="pre">astrolibrary.</span></span><span class="sig-name descname"><span class="pre">cross_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_objid_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_distance_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.cross_match" title="Link to this definition">¶</a></dt>
+<dd><p>Cross-match Gaia and SDSS catalogs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spec_objid_list</strong> (<em>list</em>) – <ul>
+<li><dl class="simple">
+<dt>List of spectroscopic object identifiers from the SDSS catalog</dt><dd><p>we will cross-reference</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>angular_distance_max</strong> (<em>optional float</em>) – <ul>
+<li><dl class="simple">
+<dt>Describes the maximim angular distance between a Gaia source and</dt><dd><p>the external catalouge SDSS.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Measures the degree of separation bewtween celestial objects</dt><dd><p>measured in arcseconds.</p>
+</dd>
+</dl>
+</li>
+<li><p>Default maximum is 2.00 arcseconds.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul>
+<li><p><em>Astropy Table</em> – Table of cross-match results between Gaia and SDSS</p></li>
+<li><p><em>Example Usage</em></p></li>
+<li><p><em>————-</em> – &gt;&gt;&gt;&gt; from astrolibrary import cross_match
+&gt;&gt;&gt;&gt; spec_objid_list = [</p>
+<blockquote>
+<div><p>1237645879551066262,1237645879578460255,
+1237645941291614227, 1237645941824356443]</p>
+</div></blockquote>
+<p>&gt;&gt;&gt;&gt; table = cross_match(spec_objid_list, 3.0)
+&gt;&gt;&gt;&gt; print(table[])</p>
+</li>
+<li><p><em>Cross-match results</em></p></li>
+<li><p><em>Output wil be a table with the following columns</em></p></li>
+<li><p><em>source_id, clean_sdssdr13_oid, original_ext_source_id,</em></p></li>
+<li><p><em>angular_distance, number_of_neighbours, number_of_mates xm_flag arcsec</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astrolibrary.get_spectra_data">
+<span class="sig-prename descclassname"><span class="pre">astrolibrary.</span></span><span class="sig-name descname"><span class="pre">get_spectra_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">survey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run2d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plateid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mjd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiberid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dr_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fits'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.get_spectra_data" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve spectra data from SDSS.</p>
+<section id="id1">
+<h3>Parameters:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>plateid, mjd, fiberid: int</dt><dd><p>Identifiers for SDSS data. Plate, Modified Julian Date, and Fiber ID.</p>
+</dd>
+<dt>run2d: str, optional</dt><dd><p>Data reduction version (default: ‘v5_13_2’)</p>
+</dd>
+<dt>output_format: str, optional</dt><dd><p>Output format (‘fits’ or ‘csv’) (default: ‘fits’)</p>
+</dd>
+<dt>survey: str, optional</dt><dd><p>SDSS survey type (default: ‘eboss’)</p>
+</dd>
+<dt>spec: str, optional</dt><dd><p>Spectrograph type (default: ‘lite’)</p>
+</dd>
+<dt>dr_number: str, optional</dt><dd><p>Data release number (default: ‘18’)</p>
+</dd>
+<dt>output_dir:</dt><dd><p>Directory location where spectra data is outputted (default: current
+directory)</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3>Returns:<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>file_path: path to downloaded data</p>
+</section>
+<section id="id3">
+<h3>Raises:<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ValueError:</dt><dd><ul class="simple">
+<li><p>If plateid, mjd, or fiberid are not integers.</p></li>
+<li><p>If plateid, mjd, or fiberid are less than 1.</p></li>
+<li><p>If the provided format is not supported.</p></li>
+<li><p>If run2d value is not valid, according to SDSS website</p></li>
+<li><p>If spec value is not valid, according to SDSS website</p></li>
+</ul>
+</dd>
+<dt>RuntimeError:</dt><dd><ul class="simple">
+<li><p>If there is an error in data downloading or processing.</p></li>
+</ul>
+</dd>
+<dt>Timeout:</dt><dd><ul class="simple">
+<li><p>By default, timeout at 30</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h3>Examples:<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
+<p>CSV data
+Retrieving file_path
+&gt;&gt;&gt; file_path_to_csv = get_spectra_data(</p>
+<blockquote>
+<div><blockquote>
+<div><p>plateid=7644,
+mjd=57327,
+fiberid=528,
+output_format=’csv’,
+dr_number=18,</p>
+</div></blockquote>
+<p>)</p>
+</div></blockquote>
+<p>Output: ‘./spec-7644-57327-0528.csv’
+Generating data:</p>
+<blockquote>
+<div><p>import pandas as pd
+data = pd.read_csv(file_path_to_csv)
+data.head()</p>
+</div></blockquote>
+<p>FITS data
+Retrieving file_path
+&gt;&gt;&gt; file_path_to_fits = get_spectra_data(</p>
+<blockquote>
+<div><blockquote>
+<div><p>plateid=7644,
+mjd=57327,
+fiberid=528,
+output_format=’fits’,</p>
+<p>dr_number=17,</p>
+</div></blockquote>
+<p>)</p>
+</div></blockquote>
+<p>Output: ‘./spec-7644-57327-0528.fits’
+Generating data:</p>
+<blockquote>
+<div><p>from astropy.io import fits
+import pandas as pd
+hdul=fits.open(file_path)
+print(hdul)</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astrolibrary.plot">
+<span class="sig-prename descclassname"><span class="pre">astrolibrary.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.plot" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – Dataframe containing spectral data from the SDSS catalog</p></li>
+<li><p><strong>attributes</strong> (<em>list</em>) – List of attributes that will be extracted from the ‘data’ dictionary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>A matplotlib that displays the spectral data with inferred continuum</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;wavelength&quot;: np.array([1,2,3,4]),</span>
+<span class="go">                    &quot;flux&quot;: np.array([1,2,3,4]),</span>
+<span class="go">                    # More stuff</span>
+<span class="go">                }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vs</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;Inferred Continuum&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p># This should plot/show the graph, without saving x
+&gt;&gt;&gt; vs.plot_spectra(data, window_size = 0.5, should_plot=True)</p>
+<p># This should save plot and return filename, without plotting it
+&gt;&gt;&gt; vs.plot_spectra(data, type=”Inferred Continuum”, should_plot=False)
+)</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, team15_2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

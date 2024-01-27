@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>astrolibrary.data_acquisition.query_interface.query_handler module &mdash; astrolibrary 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            astrolibrary
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">astrolibrary.data_acquisition.query_interface.query_handler module</a><ul>
+<li><a class="reference internal" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler"><code class="docutils literal notranslate"><span class="pre">QueryHandler</span></code></a><ul>
+<li><a class="reference internal" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.check_status"><code class="docutils literal notranslate"><span class="pre">QueryHandler.check_status()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.get_results"><code class="docutils literal notranslate"><span class="pre">QueryHandler.get_results()</span></code></a></li>
+<li><a class="reference internal" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.run_query"><code class="docutils literal notranslate"><span class="pre">QueryHandler.run_query()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">astrolibrary</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">astrolibrary.data_acquisition.query_interface.query_handler module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/astrolibrary.data_acquisition.query_interface.query_handler.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-astrolibrary.data_acquisition.query_interface.query_handler">
+<span id="astrolibrary-data-acquisition-query-interface-query-handler-module"></span><h1>astrolibrary.data_acquisition.query_interface.query_handler module<a class="headerlink" href="#module-astrolibrary.data_acquisition.query_interface.query_handler" title="Link to this heading">¶</a></h1>
+<p>Query Handler Module.</p>
+<dl class="simple">
+<dt>Allows end-users to:</dt><dd><ul class="simple">
+<li><p>Instantiate a query handler for a given dataset: SDSS, for example.</p></li>
+<li><p>Run a query.</p></li>
+<li><p>Check the status of a query, useful for long-running queries.</p></li>
+<li><p>Get the results of a query.</p></li>
+</ul>
+</dd>
+<dt>Advantages/Design Considerations:</dt><dd><ul class="simple">
+<li><p>Make the library more user-friendly, as the users only interact with the
+high-level <cite>QueryHandler</cite> class without needing to understand the
+underlying details.</p></li>
+<li><p>The <cite>QueryHandler</cite> class is dataset-agnostic, i.e. it can be used to
+query any dataset without having the client/user to memorize specific
+api calls for each dataset: simply query it with ADQL &amp; SQL.</p></li>
+<li><p>This design allows for the addition of new datasets without modifying
+the existing codebase.</p></li>
+<li><p>Can be easily extended to support users’ own provided datasets in
+addition to core ones like SDSS.</p></li>
+</ul>
+</dd>
+<dt>Limitations and Future Work:</dt><dd><ul class="simple">
+<li><p>Currently, supports SDSS dataset through the <cite>SDSSConnector</cite> class, but
+can be extended to support other datasets as explained above.</p></li>
+<li><p>Currently, the <cite>QueryHandler</cite> supports synchronous queries only, but the
+design can be extended to support asynchronous queries as well.
+This means <cite>run_query</cite> will wait for the query to finish and sets
+the appropriate attributes.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astrolibrary.data_acquisition.query_interface.query_handler.</span></span><span class="sig-name descname"><span class="pre">QueryHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for handling queries to a given <cite>dataset_name</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.check_status">
+<span class="sig-name descname"><span class="pre">check_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.check_status" title="Link to this definition">¶</a></dt>
+<dd><p>Check the status of a query given its <cite>query_id</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_id</strong> (<em>str</em>) – The unique identifier of the query to check its status.</p></li>
+<li><p><strong>Returns</strong> – </p></li>
+<li><p><strong>--------</strong> – </p></li>
+<li><p><strong>status</strong> (<em>str</em>) – <dl class="simple">
+<dt>The status of the query. This can be one of the following:</dt><dd><ul>
+<li><p>”COMPLETED”: The query completed successfully.</p></li>
+<li><p>”ERROR”: The query failed with an error.</p></li>
+<li><p>”RUNNING”: The query is still running.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>Raises</strong> – </p></li>
+<li><p><strong>-------</strong> – </p></li>
+<li><p><strong>ValueError</strong> – If the given <cite>query_id</cite> is not found in <cite>self.statuses</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.get_results">
+<span class="sig-name descname"><span class="pre">get_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Table</span></span></span><a class="headerlink" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.get_results" title="Link to this definition">¶</a></dt>
+<dd><p>Get the results of a query.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>query_id<span class="classifier">str</span></dt><dd><p>The unique identifier of the query to get its results.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns:<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>table<span class="classifier">astropy.table.Table</span></dt><dd><p>The results of the query as an astropy table.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h2>Raises:<a class="headerlink" href="#raises" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError:</dt><dd><p>If the given <cite>query_id</cite> is not found in <cite>self.results</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.run_query">
+<span class="sig-name descname"><span class="pre">run_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#astrolibrary.data_acquisition.query_interface.query_handler.QueryHandler.run_query" title="Link to this definition">¶</a></dt>
+<dd><p>Runs the given query against <cite>self.dataset_name</cite>.</p>
+<p>Uses the connector of <cite>self.dataset_name</cite> to run the query. To make
+this function dataset-agnostic, we will require the <cite>_name_connector</cite>
+modules to inherit from a base class <cite>Connector</cite> that has a <cite>run_query</cite>
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – The query to run.</p></li>
+<li><p><strong>*args</strong> (<em>iterable</em>) – Other arguments. For future extensibility.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Other keyword arguments. For future extensibility.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>query_id</strong> – A unique identifier for the query that can be used to check the
+status of the query and get the results</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>:raises ValueError : If the given <cite>query</cite> is invalid.:</p>
+<p class="rubric">Examples</p>
+<p>These are written in doctest format, and should illustrate how to
+use the function.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astrolibrary.query_interface.query_handler</span> <span class="kn">import</span> <span class="n">QueryHandler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qh</span> <span class="o">=</span> <span class="n">QueryHandler</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;sdss&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qh</span><span class="o">.</span><span class="n">run_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM table LIMIT 10&quot;</span><span class="p">)</span>
+<span class="go">&#39;12345&#39;</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>The main reason for <cite>query_id</cite> is to allow future extensibility to
+support asynchronous queries, while also keeping backward compatibility
+with synchronous queries.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, team15_2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

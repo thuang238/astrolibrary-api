@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>astrolibrary.data_acquisition.query_interface.cross_matching module &mdash; astrolibrary 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            astrolibrary
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">astrolibrary.data_acquisition.query_interface.cross_matching module</a><ul>
+<li><a class="reference internal" href="#astrolibrary.data_acquisition.query_interface.cross_matching.cross_match"><code class="docutils literal notranslate"><span class="pre">cross_match()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">astrolibrary</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">astrolibrary.data_acquisition.query_interface.cross_matching module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/astrolibrary.data_acquisition.query_interface.cross_matching.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-astrolibrary.data_acquisition.query_interface.cross_matching">
+<span id="astrolibrary-data-acquisition-query-interface-cross-matching-module"></span><h1>astrolibrary.data_acquisition.query_interface.cross_matching module<a class="headerlink" href="#module-astrolibrary.data_acquisition.query_interface.cross_matching" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="astrolibrary.data_acquisition.query_interface.cross_matching.cross_match">
+<span class="sig-prename descclassname"><span class="pre">astrolibrary.data_acquisition.query_interface.cross_matching.</span></span><span class="sig-name descname"><span class="pre">cross_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_objid_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_distance_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.data_acquisition.query_interface.cross_matching.cross_match" title="Link to this definition">¶</a></dt>
+<dd><p>Cross-match Gaia and SDSS catalogs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spec_objid_list</strong> (<em>list</em>) – <ul>
+<li><dl class="simple">
+<dt>List of spectroscopic object identifiers from the SDSS catalog</dt><dd><p>we will cross-reference</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>angular_distance_max</strong> (<em>optional float</em>) – <ul>
+<li><dl class="simple">
+<dt>Describes the maximim angular distance between a Gaia source and</dt><dd><p>the external catalouge SDSS.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Measures the degree of separation bewtween celestial objects</dt><dd><p>measured in arcseconds.</p>
+</dd>
+</dl>
+</li>
+<li><p>Default maximum is 2.00 arcseconds.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul>
+<li><p><em>Astropy Table</em> – Table of cross-match results between Gaia and SDSS</p></li>
+<li><p><em>Example Usage</em></p></li>
+<li><p><em>————-</em> – &gt;&gt;&gt;&gt; from astrolibrary import cross_match
+&gt;&gt;&gt;&gt; spec_objid_list = [</p>
+<blockquote>
+<div><p>1237645879551066262,1237645879578460255,
+1237645941291614227, 1237645941824356443]</p>
+</div></blockquote>
+<p>&gt;&gt;&gt;&gt; table = cross_match(spec_objid_list, 3.0)
+&gt;&gt;&gt;&gt; print(table[])</p>
+</li>
+<li><p><em>Cross-match results</em></p></li>
+<li><p><em>Output wil be a table with the following columns</em></p></li>
+<li><p><em>source_id, clean_sdssdr13_oid, original_ext_source_id,</em></p></li>
+<li><p><em>angular_distance, number_of_neighbours, number_of_mates xm_flag arcsec</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, team15_2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+pytest
+pytest-cov
+requests_mock
+sphinx
+sphinx-autobuild
+sphinx_rtd_theme
+black
+flake8
+isort
+pylint
+mypy

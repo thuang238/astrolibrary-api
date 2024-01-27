@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astrolibrary"
+version = "1.0.1"
+authors = [
+  {name="Hewan Kidanemariam", email="hkidanemariam@college.harvard.edu"},
+  { name="Hayat Hassan", email="hayatmuse@college.harvard.edu" },
+  { name="Rachel Ok", email="hok@college.harvard.edu" },
+  { name="Sam Mucyo", email="sammucyo@college.harvard.edu" },
+  { name="Theresa Huang", email="thuang@college.harvard.edu" },
+]
+description = "A library designed for astronomical research, focusing on the classification of stars, galaxies, and QSOs."
+readme = "API_draft/README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies=[
+    "astropy",
+    "astroquery",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "requests",
+    "scipy",
+    "scikit-learn",
+]
+
+
+
+
+[project.urls]
+Homepage = "https://code.harvard.edu/CS107/team15_2023"
+Issues = "https://code.harvard.edu/CS107/team15_2023/issues"

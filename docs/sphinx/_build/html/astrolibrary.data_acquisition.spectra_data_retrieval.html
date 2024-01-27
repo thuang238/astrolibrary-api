@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>astrolibrary.data_acquisition.spectra_data_retrieval module &mdash; astrolibrary 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            astrolibrary
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">astrolibrary.data_acquisition.spectra_data_retrieval module</a><ul>
+<li><a class="reference internal" href="#astrolibrary.data_acquisition.spectra_data_retrieval.get_spectra_data"><code class="docutils literal notranslate"><span class="pre">get_spectra_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">astrolibrary</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">astrolibrary.data_acquisition.spectra_data_retrieval module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/astrolibrary.data_acquisition.spectra_data_retrieval.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-astrolibrary.data_acquisition.spectra_data_retrieval">
+<span id="astrolibrary-data-acquisition-spectra-data-retrieval-module"></span><h1>astrolibrary.data_acquisition.spectra_data_retrieval module<a class="headerlink" href="#module-astrolibrary.data_acquisition.spectra_data_retrieval" title="Link to this heading">¶</a></h1>
+<p>Spectra Data Retrieval Module.</p>
+<dl class="simple">
+<dt>Allows end-users to:</dt><dd><ul class="simple">
+<li><p>Retrieve spectra data from SDSS using provided identifiers: Plate,
+Modified Julian Date (MJD), and Fiber ID.</p></li>
+<li><p>Specify optional parameters such as data reduction version (RUN2D),
+output format (‘fits’ or ‘csv’), SDSS survey type (SURVEY), spectrograph
+type (SPEC), and data release number (dr_number).</p></li>
+<li><p>Save the downloaded data locally with customizable output directory.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="astrolibrary.data_acquisition.spectra_data_retrieval.get_spectra_data">
+<span class="sig-prename descclassname"><span class="pre">astrolibrary.data_acquisition.spectra_data_retrieval.</span></span><span class="sig-name descname"><span class="pre">get_spectra_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">survey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run2d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plateid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mjd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fiberid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dr_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fits'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astrolibrary.data_acquisition.spectra_data_retrieval.get_spectra_data" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve spectra data from SDSS.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>plateid, mjd, fiberid: int</dt><dd><p>Identifiers for SDSS data. Plate, Modified Julian Date, and Fiber ID.</p>
+</dd>
+<dt>run2d: str, optional</dt><dd><p>Data reduction version (default: ‘v5_13_2’)</p>
+</dd>
+<dt>output_format: str, optional</dt><dd><p>Output format (‘fits’ or ‘csv’) (default: ‘fits’)</p>
+</dd>
+<dt>survey: str, optional</dt><dd><p>SDSS survey type (default: ‘eboss’)</p>
+</dd>
+<dt>spec: str, optional</dt><dd><p>Spectrograph type (default: ‘lite’)</p>
+</dd>
+<dt>dr_number: str, optional</dt><dd><p>Data release number (default: ‘18’)</p>
+</dd>
+<dt>output_dir:</dt><dd><p>Directory location where spectra data is outputted (default: current
+directory)</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns:<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h2>
+<p>file_path: path to downloaded data</p>
+</section>
+<section id="raises">
+<h2>Raises:<a class="headerlink" href="#raises" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError:</dt><dd><ul class="simple">
+<li><p>If plateid, mjd, or fiberid are not integers.</p></li>
+<li><p>If plateid, mjd, or fiberid are less than 1.</p></li>
+<li><p>If the provided format is not supported.</p></li>
+<li><p>If run2d value is not valid, according to SDSS website</p></li>
+<li><p>If spec value is not valid, according to SDSS website</p></li>
+</ul>
+</dd>
+<dt>RuntimeError:</dt><dd><ul class="simple">
+<li><p>If there is an error in data downloading or processing.</p></li>
+</ul>
+</dd>
+<dt>Timeout:</dt><dd><ul class="simple">
+<li><p>By default, timeout at 30</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<p>CSV data
+Retrieving file_path
+&gt;&gt;&gt; file_path_to_csv = get_spectra_data(</p>
+<blockquote>
+<div><blockquote>
+<div><p>plateid=7644,
+mjd=57327,
+fiberid=528,
+output_format=’csv’,
+dr_number=18,</p>
+</div></blockquote>
+<p>)</p>
+</div></blockquote>
+<p>Output: ‘./spec-7644-57327-0528.csv’
+Generating data:</p>
+<blockquote>
+<div><p>import pandas as pd
+data = pd.read_csv(file_path_to_csv)
+data.head()</p>
+</div></blockquote>
+<p>FITS data
+Retrieving file_path
+&gt;&gt;&gt; file_path_to_fits = get_spectra_data(</p>
+<blockquote>
+<div><blockquote>
+<div><p>plateid=7644,
+mjd=57327,
+fiberid=528,
+output_format=’fits’,</p>
+<p>dr_number=17,</p>
+</div></blockquote>
+<p>)</p>
+</div></blockquote>
+<p>Output: ‘./spec-7644-57327-0528.fits’
+Generating data:</p>
+<blockquote>
+<div><p>from astropy.io import fits
+import pandas as pd
+hdul=fits.open(file_path)
+print(hdul)</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, team15_2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
